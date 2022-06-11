@@ -400,7 +400,7 @@ for epoch in range(num_epochs):
     
     if early_stop_type:
         valid_output = net(input_valid_data)
-        valid_loss = loss_fn_1(valid_output, input_valid_label_gpu)
+        valid_loss = torch.sum(loss_fn_1(valid_output, input_valid_label_gpu))
         early_stopping(valid_loss, net)
         # 若满足 early stopping 要求
         if early_stopping.early_stop:
