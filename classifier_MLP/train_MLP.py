@@ -373,20 +373,7 @@ for epoch in range(num_epochs):
     loss_2 = loss_fn_2(predict_pre, input_label)
 
     loss = torch.sum( (1-input_label)*loss_1 + input_label * loss_2 )
-
-    # print(loss_1)
-    # print(type(loss_1))
-    # print(loss_1.shape)
-    # print(loss_2)
-    # print(type(loss_2))
-    # print(loss_2.shape)
-    print(loss)
-    print(type(loss))
-    print(loss.shape)
-    # exit(0)
     
-    
-
     optimizer.zero_grad()
     loss.backward()
     optimizer.step()
