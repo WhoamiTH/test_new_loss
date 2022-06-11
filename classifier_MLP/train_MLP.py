@@ -374,6 +374,11 @@ for epoch in range(num_epochs):
 
     loss = (1-input_label)*loss_1 + input_label * loss_2
 
+
+    print(loss_1.shape)
+    print(loss_2.shape)
+    print(loss.shape)
+
     optimizer.zero_grad()
     loss.backward()
     optimizer.step()
