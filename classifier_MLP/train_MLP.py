@@ -331,8 +331,8 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 net.to(device)
 
-loss_fn_1 = nn.BCELoss()
-loss_fn_2 = nn.BCELoss()  
+loss_fn_1 = nn.BCELoss(reduction='none')
+loss_fn_2 = nn.BCELoss(reduction='none')  
 
 optimizer = torch.optim.Adam(net.parameters(), lr=0.001)
 
