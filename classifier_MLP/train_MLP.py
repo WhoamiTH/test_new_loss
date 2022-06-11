@@ -381,9 +381,9 @@ for epoch in range(num_epochs):
     print(loss_2.shape)
     print(loss.shape)
 
-    optimizer.zero_grad()
-    loss.backward()
-    optimizer.step()
+    # optimizer.zero_grad()
+    # loss.backward()
+    # optimizer.step()
     train_loss = loss.item()
 
     if epoch % 500 == 0:

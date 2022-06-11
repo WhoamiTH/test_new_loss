@@ -237,7 +237,7 @@ def get_MLP_predict_result(test_data, net):
     return output
 
 # 获取初步结果
-test_result = get_MLP_predict_result(cur_test_data, net)
+test_result = get_MLP_predict_result(test_data, net)
 test_result = test_result.detach().to('cpu').numpy()
 
 # test_length = test_data.shape[0]
