@@ -405,6 +405,7 @@ for epoch in range(num_epochs):
         # 若满足 early stopping 要求
         if early_stopping.early_stop:
             result =  torch.ge(valid_output, 0.5) 
+            result = result.cpu()
             #计算准确率
             train_acc = accuracy_score(input_valid_label, result)
 
