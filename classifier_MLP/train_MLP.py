@@ -348,8 +348,7 @@ optimizer = torch.optim.Adam(net.parameters(), lr=0.001)
 input_valid_data = torch.Tensor(torch.from_numpy(valid_data).float())
 input_valid_label = torch.Tensor(torch.from_numpy(valid_label).float())
 input_valid_data = input_valid_data.to(device)
-input_valid_label = input_valid_label.to(device)
-
+input_valid_label_gpu = input_valid_label.to(device)
 
 
 for epoch in range(num_epochs):
@@ -401,7 +400,7 @@ for epoch in range(num_epochs):
     
     if early_stop_type:
         valid_output = net(input_valid_data)
-        valid_loss = loss_fn_1(valid_output, input_valid_label)
+        valid_loss = loss_fn_1(valid_output, input_valid_label_gpu)
         early_stopping(valid_loss, net)
         # 若满足 early stopping 要求
         if early_stopping.early_stop:
