@@ -369,17 +369,21 @@ for epoch in range(num_epochs):
 
     transformed_predict = net.relu(predict_pre-predict_pos)   
     
-    # loss_1 = loss_fn_1(transformed_predict, input_label)
-    # loss_2 = loss_fn_2(predict_pre, input_label)
+    loss_1 = loss_fn_1(transformed_predict, input_label)
+    loss_2 = loss_fn_2(predict_pre, input_label)
 
-    # loss = (1-input_label)*loss_1 + input_label * loss_2
+    loss = (1-input_label)*loss_1 + input_label * loss_2
 
-    loss = loss_fn_1(transformed_predict, input_label)
-    loss_1 = loss
-    loss_2 = loss
+    print(type(loss_1))
     print(loss_1.shape)
+    print(type(loss_2))
     print(loss_2.shape)
+    print(type(loss))
     print(loss.shape)
+
+    loss = loss_1
+    
+    
 
     # optimizer.zero_grad()
     # loss.backward()
@@ -401,6 +405,8 @@ for epoch in range(num_epochs):
         f1 = skmet.f1_score(y_true=input_valid_label, y_pred=result)
         auc = skmet.roc_auc_score(y_true=input_valid_label, y_score=result)
         print('epoch {:.0f}, loss {:.4f}, train acc {:.2f}%, f1 {:.4f}, precision {:.4f}, recall {:.4f}, auc {:.4f}'.format(epoch+1, train_loss, train_acc*100, f1, pre, rec, auc) )
+        
+
         
     
     if early_stop_type:
