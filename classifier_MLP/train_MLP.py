@@ -332,7 +332,7 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 net.to(device)
 
 loss_fn_1 = nn.BCELoss(reduction='none')
-loss_fn_2 = nn.BCELoss(reduction='none')  
+loss_fn_2 = nn.BCELoss(reduction='none')
 
 optimizer = torch.optim.Adam(net.parameters(), lr=0.001)
 
@@ -383,14 +383,14 @@ for epoch in range(num_epochs):
     print(loss)
     print(type(loss))
     print(loss.shape)
-    exit(0)
+    # exit(0)
     loss = loss_1
     
     
 
-    # optimizer.zero_grad()
-    # loss.backward()
-    # optimizer.step()
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()
     train_loss = loss.item()
 
     if epoch % 500 == 0:
