@@ -67,7 +67,7 @@ def generate_transformed_batch_data(sample_method, positive_data, negative_data,
     negative_length = negative_data.shape[0]
 
     if sample_method == 'balance':
-        time = 1
+        times = 1
     else:
         times = negative_length / positive_length
         times = int(times)
