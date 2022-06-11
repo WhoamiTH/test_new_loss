@@ -348,6 +348,7 @@ optimizer = torch.optim.Adam(net.parameters(), lr=0.001)
 input_valid_data = torch.Tensor(torch.from_numpy(valid_data).float())
 input_valid_label = torch.Tensor(torch.from_numpy(valid_label).float())
 input_valid_data = input_valid_data.to(device)
+input_valid_label = input_valid_label.to(device)
 
 
 
